@@ -8,4 +8,4 @@ RUN curl -fsSL https://packagecloud.io/install/repositories/ookla/speedtest-cli/
  && apt-get install -y speedtest \
  && rm -rf /var/lib/apt/lists/*
 
-CMD speedtest --accept-license --accept-gdpr -f json 2>/dev/null | jq
+CMD speedtest --accept-license --accept-gdpr -f json 2>/dev/null | jq -C '{download_Mbps: ((.download.bandwidth * 8 / 1000000 * 100 | round) / 100), upload_Mbps: ((.upload.bandwidth * 8 / 1000000 * 100 | round) / 100), packetLoss: (.packetLoss // 0), server: .server.name, location: .server.location, country: .server.country, isp: .isp, result_url: .result.url}'
