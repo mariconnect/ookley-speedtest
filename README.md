@@ -1,7 +1,8 @@
 ## Build image
 ```bash
-docker build --network host -t ookla-speedtest .
+docker build -t ookla-speedtest .
 ```
+If it's failing to download, check the Docker Firewall
 
 ## Create network
 ```bash
