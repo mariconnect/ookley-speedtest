@@ -1,6 +1,6 @@
 ## Build image
 ```bash
-docker build -t ookla-speedtest .
+docker build build --network -t ookla-speedtest .
 ```
 
 ## Create network
